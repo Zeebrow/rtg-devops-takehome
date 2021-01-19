@@ -11,6 +11,7 @@ jobs:
           node-version: '10'
       - run: npm -v
       - run: node -v
+      - run: npm install -g gatsby-cli
       - run: npm run build
 
 
