@@ -10,6 +10,7 @@ jobs:
         with:
           node-version: '10'
       - run: npm install
+      - run: npm install -g gatsby-cli
       - run: gatsby build
       - uses: jakejarvis/s3-sync-action@master
         with:
