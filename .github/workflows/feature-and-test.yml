@@ -19,9 +19,11 @@ jobs:
       - run: pwd
       - run: ls -la
       - run: terraform init
+        working-directory: ./terraform/feature-branch-and-test
       - run: export AWS_SECRET_ACCESS_KEY=${{ secrets.R2G_AWS_SECRET_ACCESS_KEY }}
       - run: export AWS_ACCESS_KEY_ID=${{ secrets.R2G_AWS_ACCESS_KEY_ID }}
       - run: terraform plan -no-color -var bucket_name=mzborowski-r2g-branchname
+        working-directory: ./terraform/feature-branch-and-test
 
   build-gatsby:
     runs-on: ubuntu-latest
