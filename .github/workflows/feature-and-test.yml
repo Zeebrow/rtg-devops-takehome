@@ -1,7 +1,9 @@
 name: feature-and-test
 on:
   push:
-    - 'feature*'
+    branches:
+      - 'feature*'
+      - develop
   pull_request:
     branches:
       - master
