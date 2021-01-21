@@ -13,7 +13,6 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.R2G_AWS_ACCESS_KEY_ID }}
 
     steps:
-      - run: echo ${GITHUB_REF##*/}
       - uses: hashicorp/setup-terraform@v1
       - uses: actions/checkout@v2
       - run: terraform init
@@ -25,10 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: init-infrastructure
     steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
       - run: sudo apt-get -y install curl
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2

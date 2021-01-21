@@ -3,6 +3,7 @@ on:
   delete:
     branches:
       - '!master'
+      - '!develop'
 jobs:
   destroy-infrastructure:
     runs-on: ubuntu-latest
@@ -15,5 +16,5 @@ jobs:
       - uses: actions/checkout@v2
       - run: terraform init
         working-directory: ./terraform/feature-branch-and-test
-      - run: terraform destroy -no-color -var bucket_name=mzborowski-r2g-branchname -auto-approve
+      - run: terraform destroy -no-color -var bucket_name=mzborowski-r2g-${GITHUB_REF##*/} -auto-approve
         working-directory: ./terraform/feature-branch-and-test
