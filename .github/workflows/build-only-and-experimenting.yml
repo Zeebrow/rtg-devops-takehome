@@ -4,6 +4,11 @@ jobs:
   build-gatsby:
     runs-on: ubuntu-latest
     steps:
+      - name: Extract branch name
+        id: extract_branch
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      - name: Run echo GITHUB_REF
+        run: echo ${GITHUB_REF##*/}
       - run: echo Outputting all Github environment variables, to see.
       - run: echo "CI $CI" && echo "GITHUB_WORKFLOW $GITHUB_WORKFLOW" && echo "GITHUB_ACTION $GITHUB_ACTION" && echo "GITHUB_ACTOR $GITHUB_ACTOR" && echo "GITHUB_REPOSITORY $GITHUB_REPOSITORY" && echo "GITHUB_EVENT_NAME $GITHUB_EVENT_NAME" && echo "GITHUB_EVENT_PATH $GITHUB_EVENT_PATH" && echo "GITHUB_WORKSPACE $GITHUB_WORKSPACE"
       - run: cat $GITHUB_EVENT_PATH
