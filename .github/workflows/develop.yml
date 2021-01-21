@@ -13,6 +13,11 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.R2G_AWS_ACCESS_KEY_ID }}
 
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - run: echo ${{ steps.extract_branch.outputs.branch }}
       - uses: hashicorp/setup-terraform@v1
       - uses: actions/checkout@v2
       - run: terraform init
