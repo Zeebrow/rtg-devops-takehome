@@ -1,4 +1,4 @@
-name: feature-and-test
+name: develop
 on:
   push:
     branches:
