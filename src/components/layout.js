@@ -19,7 +19,6 @@ const Layout = ({ children }) => {
         siteMetadata {
           title
 					git_branch
-					git_commit_hash
         }
       }
     }
@@ -43,7 +42,7 @@ const Layout = ({ children }) => {
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
 					<br/>
-					<p>Built from the {data.site.siteMetadata?.git_branch} branch. Commit: {data.site.siteMetadata?.git_commit_hash}</p>
+					<p>Built from the {data.site.siteMetadata?.git_branch} branch.</p>
         </footer>
       </div>
     </>
