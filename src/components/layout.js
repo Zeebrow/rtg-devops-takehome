@@ -18,7 +18,6 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
-					git_branch
         }
       }
     }
