@@ -23,7 +23,6 @@ jobs:
     needs: init-infrastructure
     steps:
       - run: sudo apt-get -y install curl
-      - run: branchName=`grep ^\"ref $GITHUB_EVENT_PATH | awk 'BEGIN {FS="/"}; { print $3}' | tr -d '"'` &&  sed -i "s/abc_branch_placeholder/$branchName/" gatsby-config.js
       - run: sed 
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -31,6 +30,7 @@ jobs:
           node-version: '10'
       - run: npm install
       - run: npm install -g gatsby-cli
+      - run: branchName=`grep ^\"ref $GITHUB_EVENT_PATH | awk 'BEGIN {FS="/"}; { print $3}' | tr -d '"'` &&  sed -i "s/abc_branch_placeholder/$branchName/" gatsby-config.js
       - run: gatsby build
       - uses: jakejarvis/s3-sync-action@master
         with:
