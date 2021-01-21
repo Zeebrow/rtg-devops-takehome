@@ -74,3 +74,6 @@ yarn-error.log
 
 ## open vim files 
 *.swp
+
+## locally generated build artifacts
+public/
