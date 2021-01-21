@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: terraform init
         working-directory: ./terraform/feature-branch-and-test
-      - run: terraform apply -no-color -var bucket_name=mzborowski-r2g-${GITHUB_REF##*/}-auto-approve
+      - run: terraform apply -no-color -var bucket_name=mzborowski-r2g-${GITHUB_REF##*/} -auto-approve
         working-directory: ./terraform/feature-branch-and-test
 
   build-gatsby:
