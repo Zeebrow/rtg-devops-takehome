@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - develop
+    path-ignore:
+      - '*.md'
 jobs:
   init-infrastructure:
     runs-on: ubuntu-latest

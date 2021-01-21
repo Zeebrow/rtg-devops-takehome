@@ -2,7 +2,9 @@ name: feature-and-test
 on:
   push:
     branches:
-      - 'feature*'
+      - 'feature/*'
+    paths-ignore:
+      - .gitignore
 jobs:
   init-infrastructure:
     runs-on: ubuntu-latest

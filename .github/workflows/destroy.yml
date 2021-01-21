@@ -1,0 +1,19 @@
+name: destroy
+on:
+  delete:
+    branches:
+      - '!master'
+jobs:
+  destroy-infrastructure:
+    runs-on: ubuntu-latest
+    env:
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2G_AWS_SECRET_ACCESS_KEY }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2G_AWS_ACCESS_KEY_ID }}
+
+    steps:
+      - uses: hashicorp/setup-terraform@v1
+      - uses: actions/checkout@v2
+      - run: terraform init
+        working-directory: ./terraform/feature-branch-and-test
+      - run: terraform destroy -no-color -var bucket_name=mzborowski-r2g-branchname -auto-approve
+        working-directory: ./terraform/feature-branch-and-test
