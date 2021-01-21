@@ -14,16 +14,11 @@ jobs:
 
     steps:
       - run: echo ${GITHUB_REF##*/}
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      - run: echo ${{ steps.extract_branch.outputs.branch }}
       - uses: hashicorp/setup-terraform@v1
       - uses: actions/checkout@v2
       - run: terraform init
         working-directory: ./terraform/feature-branch-and-test
-      - run: terraform apply -no-color -var bucket_name=mzborowski-r2g-develop -auto-approve
+      - run: terraform apply -no-color -var bucket_name=mzborowski-r2g-${GITHUB_REF##*/} -auto-approve
         working-directory: ./terraform/feature-branch-and-test
 
   build-gatsby:
