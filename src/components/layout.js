@@ -18,6 +18,8 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+					git_branch
+					git_commit_hash
         }
       }
     }
@@ -40,6 +42,8 @@ const Layout = ({ children }) => {
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
+					<br/>
+					<p>Built from the {data.site.siteMetadata?.git_branch} branch. Commit: {data.site.siteMetadata?.git_commit_hash}</p>
         </footer>
       </div>
     </>
