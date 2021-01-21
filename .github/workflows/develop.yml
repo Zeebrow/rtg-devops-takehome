@@ -23,7 +23,6 @@ jobs:
     needs: init-infrastructure
     steps:
       - run: sudo apt-get -y install curl
-      - run: sed 
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
