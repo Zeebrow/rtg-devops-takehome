@@ -11,13 +11,17 @@ jobs:
     env:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.R2G_AWS_SECRET_ACCESS_KEY }}
       AWS_ACCESS_KEY_ID: ${{ secrets.R2G_AWS_ACCESS_KEY_ID }}
+      TARGET_BRANCH: ${{ github.event.ref }}
 
     steps:
-      - run: echo "github event ref - ${{ github.event.ref }}"
+      - run: echo "github event ref - ${TARGET_BRANCH##*/}"
       - uses: hashicorp/setup-terraform@v1
       - uses: actions/checkout@v2
       - name: set tfstate backend key
-        run: sed -i "s/XXtfstatekeyXX/${GITHUB_REF##*/}/" main.tf
+        run: sed -i "s/XXtfstatekeyXX/${TARGET_BRANCH##*/}/" main.tf
+        working-directory: ./terraform/feature-branch-and-test
+      - name: debug cat main.tf to verify change
+        run: cat main.tf
         working-directory: ./terraform/feature-branch-and-test
       - run: terraform init
         working-directory: ./terraform/feature-branch-and-test
