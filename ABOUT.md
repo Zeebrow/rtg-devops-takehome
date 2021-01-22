@@ -14,6 +14,8 @@ This workflow is made possible using Terraform and GitHub Actions. Terraform req
 The `develop` and `feature` workflows are identical; however, having two will provide flexability when integration tests need to be run.
 
 ## TO-DO
-- Realistically hosted master branch. Multi-region, proper DNS name, SSL, etc. 1-2 days
+- Realistically hosted master branch. Multi-region, proper DNS name, SSL, etc. 2 days
+- Zero-downtime rollout for master branch code changes. 3 days
 - Nightly integration test on develop. Integration tests for feature merges. 1 day
 - Security and safety mechanisms. No direct commits to master (must be merges from develop if tests pass, plus pull-approval). As always, this is an-going process.
+- Speed builds up. Pre-made GitHub workflow runner with dependencies installed. 0.5 days
