@@ -1,5 +1,5 @@
 # Website here
-http://mzborowski-r2g-master.s3-website-us-east-1.amazonaws.com
+http://mzborowski-r2g-develop.s3-website-us-east-1.amazonaws.com
 
 # Devops Take Home Test
 
