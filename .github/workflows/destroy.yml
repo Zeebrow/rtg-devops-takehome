@@ -7,11 +7,13 @@ on:
 jobs:
   destroy-infrastructure:
     runs-on: ubuntu-latest
+    if: github.event.ref_type == 'branch'
     env:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.R2G_AWS_SECRET_ACCESS_KEY }}
       AWS_ACCESS_KEY_ID: ${{ secrets.R2G_AWS_ACCESS_KEY_ID }}
 
     steps:
+      - run: echo "github event ref - ${{ github.event.ref }}"
       - uses: hashicorp/setup-terraform@v1
       - uses: actions/checkout@v2
       - run: terraform init
