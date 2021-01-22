@@ -13,6 +13,12 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.R2G_AWS_ACCESS_KEY_ID }}
 
     steps:
+      - name: set tfstate backend key
+        run: sed -i "s/XXtfstatekeyXX/${GITHUB_REF##*/}/" main.tf
+        working-directory: ./terraform/feature-branch-and-test
+      - name: debug check sed statement
+        run: cat main.tf
+        working-directory: ./terraform/feature-branch-and-test
       - uses: hashicorp/setup-terraform@v1
       - uses: actions/checkout@v2
       - run: terraform init
