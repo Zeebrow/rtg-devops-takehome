@@ -1,3 +1,6 @@
+# Website here
+http://mzborowski-r2g-master.s3-website-us-east-1.amazonaws.com
+
 # Devops Take Home Test
 
 This project is setup to allow devops candidates so show their skills and ability to deploy a static site to the cloud
