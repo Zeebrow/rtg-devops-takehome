@@ -16,7 +16,7 @@ resource "aws_s3_bucket" "site_bucket" {
   bucket = var.bucket_name
   acl    = "public-read"
 #  policy = file("policy.json")
-
+	force_destroy	= true
   website {
     index_document = "index.html"
     error_document = "error.html"
