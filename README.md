@@ -1,5 +1,10 @@
-# Website here
+# Michael Zborowski's notes
+
+## Website here
 http://mzborowski-r2g-develop.s3-website-us-east-1.amazonaws.com
+
+## See also
+For further explaination of results and what changes to expect Monday morning 1/25/21, see [ABOUT.md](ABOUT.md).
 
 # Devops Take Home Test
 
