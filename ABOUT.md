@@ -17,6 +17,7 @@ The `develop` and `feature` workflows are identical; however, having two will pr
 
 ## TO-DO
 - Realistically hosted master branch. Multi-region, proper DNS name, SSL, etc. 2 days
+	* Terraform does not support s3 redirect option for buckets. It's ok to configure this by hand in the console, anyways.
 - Zero-downtime rollout for master branch code changes. 3 days
 - Nightly integration test on develop. Integration tests for feature merges. 1 day
 - Security and safety mechanisms. No direct commits to master (must be merges from develop if tests pass, plus pull-approval). As always, this is an-going process.
